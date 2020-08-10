@@ -1,0 +1,46 @@
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        height: 80%;
+        width: 60%;
+        border: 1px solid cyan;
+        align-self: center;
+        margin-top: 5%;
+        border-radius: 10px;
+        box-shadow: darkgrey 1.5px 1.5px;
+    }
+    h2 {
+        color: cyan;
+    }
+
+    input {
+        width: 40%;
+        align-self: center;
+        padding: 0.6em;
+ 
+    }
+
+    select {
+        width: 40%;
+        align-self: center;
+    }
+
+    button {
+        width: 30%;
+        align-self: center;
+    }
+}

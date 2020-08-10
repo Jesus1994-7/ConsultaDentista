@@ -1,0 +1,16 @@
+<form #appointmentForm="ngForm" (submit)="createAppointment(appointmentForm)">
+
+    <div class="formulario">
+        <h2>Pide tu cita</h2>
+
+        <p>Fecha</p>
+        <input matInput type="datetime-local" ngModel placeholder="start date" name="date_and_hour"> <br>
+
+        <p>Elige tu tipo de cita</p>
+        <select name="appointment_type_id" ngModel  id="">
+            <option [value]="appointmentType.id" aria-placeholder="Elige tu cita" *ngFor="let appointmentType of appointmentTypes">{{appointmentType.name}}</option>
+        </select>
+
+        <button mdbBtn type="submit" color="cyan" mdbWavesEffect>Pedir cita</button>
+    </div>
+</form>
