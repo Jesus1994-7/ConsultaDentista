@@ -26,30 +26,29 @@
         </div>
         <!-- Profile Settings-->
         <div class="col-lg-8 pb-5">
-            <form class="row">
+            <form #updateForm (submit)="update(updateForm)" class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-fn">Nombre</label>
-                        <input class="form-control" type="text" id="account-fn" value="{{name}}" required="">
+                        <input class="form-control" ngModel type="text" id="account-fn" value="{{name}}" name="name" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-ln">Apellido</label>
-                        <input class="form-control" type="text" id="account-ln" value="{{surname}}" required="">
+                        <input class="form-control" ngModel type="text" id="account-ln" value="{{surname}}" name="surname" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-email">E-mail</label>
-                        <input class="form-control" type="email" id="account-email" value="{{email}}"
-                            disabled="">
+                        <input class="form-control" ngModel name="email" type="email" id="account-email" value="{{email}}" disabled="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-pass">Nueva Contraseña</label>
-                        <input class="form-control" type="password" id="account-pass">
+                        <input class="form-control" ngModel name="password" type="password" id="account-pass">
                     </div>
                 </div>
                 <div class="col-12">
@@ -64,9 +63,9 @@
                     </div>
                 </div>
             </form>
-            <div *ngFor="let appointment of appointmentChoose">
+            <div class="appointments" *ngFor="let appointment of appointmentChoose">
                 <p>Horario de la cita: {{appointment.date_and_hour}}</p>
-                <p>Tipo de cita: {{appointment.appointment_type_id.name}}</p>
+                <p>Tipo de cita: {{appointment.appointment_type?.name}}</p>
             </div>
         </div>
     </div>

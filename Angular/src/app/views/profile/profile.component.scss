@@ -176,4 +176,12 @@ a.list-group-item, .list-group-item-action {
     content: '';
 }
 
+.appointments {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid cyan;
+  box-shadow: darkgrey 1px 1px;
+}
+
                                     

@@ -20,7 +20,7 @@ class AppointmentController extends Controller
     {
         $user_id = Auth::id();
         // dd($user_id);
-        $appointment = Appointment::where('user_id', $user_id)->get();
+        $appointment = Appointment::where('user_id', $user_id)->with('appointmentType')->get();
         return $appointment;
     }
 

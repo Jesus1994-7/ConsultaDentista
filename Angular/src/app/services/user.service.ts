@@ -28,6 +28,10 @@ export class UserService {
     console.log(credentials);
     return this.httpClient.post<Login>(this.API_URL + '/api/auth/login', credentials);
   }
+
+  update(credentials: Credentials): Observable<any> {
+    return this.httpClient.put<any>(this.API_URL + '/api/auth/update', credentials);
+  }
   
   logout(): void {
     this.httpClient.get(this.API_URL + '/api/auth/logout', {

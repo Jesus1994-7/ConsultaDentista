@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { NgForm } from '@angular/forms';
+import { Credentials } from 'src/app/interfaces/credentials';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +18,7 @@ export class ProfileComponent implements OnInit {
   orderId;
   isDoneOrder: boolean = false;
   appointmentChoose: object = [];
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(private appointmentService: AppointmentService, private userService: UserService) { }
 
   ngOnInit(): void {
 
@@ -32,6 +35,16 @@ export class ProfileComponent implements OnInit {
         error => console.log(error),
         () => console.log(this.appointmentChoose)
       )
+  }
+
+  update(updateForm: NgForm): void {
+    if(updateForm.valid) {
+      const credentials: Credentials = updateForm.value;
+      this.userService.update(credentials)
+        .subscribe(res => {
+          console.log(res);
+        })
+    }
   }
 
 }
